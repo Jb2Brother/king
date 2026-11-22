@@ -40,7 +40,22 @@ en Netlify.
    que crea el perfil al registrarse, los disparadores de avisos, la
    función `occupied_hours` y `link_barber_by_email`.
 
-## 2. Variables de entorno
+## 2. Video y foto reales de la landing
+
+La landing ya tiene las animaciones y el video de fondo preparados.
+Para que se vean tus archivos reales, ponlos en la carpeta `public/`:
+
+| Archivo | Qué hace |
+|---|---|
+| `public/promo.mp4` | Video vertical (720x1280) de fondo del hero, con zoom ligado al scroll. Se reproduce en bucle, sin sonido. |
+| `public/barbershop.jpg` | Foto real de tu barbería, usada como portada. |
+
+El código ya los usa si existen: si `promo.mp4` no está, el hero muestra
+el fondo animado (gradiente + barrido de luz + grano) y no se rompe nada.
+No hay que tocar código, solo copiar el archivo y volver a desplegar
+(Netlify lo toma solo con el siguiente push a GitHub).
+
+## 3. Variables de entorno
 
 Copia `.env.example` a `.env` en local, o pon las mismas variables
 en Netlify. **Nunca** subas un `.env` real a GitHub.
@@ -54,7 +69,7 @@ Usa la clave **anon / publishable** (la pública). La librería
 `@supabase/supabase-js` la maneja bien. Jamás uses la `service_role`
 en el frontend.
 
-## 3. Desarrollo local
+## 4. Desarrollo local
 
 ```bash
 npm install
@@ -75,7 +90,7 @@ Con Supabase configurado, cada usuario se registra con Supabase Auth.
 Para hacer admin a una cuenta: en Supabase → Table Editor → `profiles`,
 cambia su `role` a `superadmin`.
 
-## 4. Subir a GitHub
+## 5. Subir a GitHub
 
 ```bash
 git init
@@ -88,7 +103,7 @@ git push -u origin main
 
 Crea antes el repositorio vacío en GitHub (sin README).
 
-## 5. Desplegar en Netlify
+## 6. Desplegar en Netlify
 
 1. Netlify → **Add new site → Import an existing project → GitHub**,
    elige el repositorio.
